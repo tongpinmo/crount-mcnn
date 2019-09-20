@@ -15,7 +15,9 @@ save_output = True
 
 data_path =  './data/original/shanghaitech/part_B_final/test_data/images/'
 gt_path = './data/original/shanghaitech/part_B_final/test_data/ground_truth_csv/'
-model_path = './final_models/mcnn_shtechB_110.h5'
+# model_path = './final_models/mcnn_shtechB_110.h5'
+model_path = './saved_models/mcnn_shtechA_3000.h5'
+
 
 output_dir = './output/'
 model_name = os.path.basename(model_path).split('.')[0]
@@ -55,7 +57,7 @@ for blob in data_loader:
         
 mae = mae/data_loader.get_num_samples()
 mse = np.sqrt(mse/data_loader.get_num_samples())
-print '\nMAE: %0.2f, MSE: %0.2f' % (mae,mse)
+print('\nMAE: %0.2f, MSE: %0.2f' % (mae,mse))
 
 f = open(file_results, 'w') 
 f.write('MAE: %0.2f, MSE: %0.2f' % (mae,mse))
