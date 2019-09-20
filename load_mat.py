@@ -2,7 +2,7 @@ import numpy as np
 import scipy.io as scio
 import os
 
-dataFile = '/home/ubuntu/users/tongpinmo/projects/crowdcount-mcnn/data/original/shanghaitech/part_A_final/train_data/ground_truth/GT_IMG_1.mat'
+dataFile = '/home/ubuntu/users/tongpinmo/projects/crowdcount-mcnn/data/original/shanghaitech/part_A_final/train_data/ground_truth/GT_IMG_20.mat'
 
 data = scio.loadmat(dataFile)
 
