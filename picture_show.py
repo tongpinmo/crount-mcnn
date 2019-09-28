@@ -15,8 +15,11 @@ if os.path.exists('cv2_center/'):
 
 os.mkdir('cv2_center/')
 
+img = cv2.imread(imgpath)
+
 with open(filepath,'r') as f:
     f = f.readlines()
+    print('f: ',f)
     for line in f:
         line = line.strip().split(',')
         print('line: ',line)
@@ -24,9 +27,9 @@ with open(filepath,'r') as f:
 
 #------------------------------------cv2-center images-------------------
         radius = 6
-        thickness = 10
-        point_color = (0,0,255)
-        img = cv2.imread(imgpath)
+        thickness = 8
+        point_color = (0,255,0)
+
 
         point = (int(float(line[0])),int(float(line[1])))
         print('point:',point)

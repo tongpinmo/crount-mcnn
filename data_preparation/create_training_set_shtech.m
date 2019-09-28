@@ -39,6 +39,7 @@ for idx = 1:num_images
         fprintf(1,'Processing %3d/%d files\n', idx, num_images);
     end
     load(strcat(gt_path, 'GT_IMG_',num2str(i),'.mat')) ;
+    % matfile = load(path...)
     input_img_name = strcat(path,'IMG_',num2str(i),'.jpg');
     im = imread(input_img_name);
     [h, w, c] = size(im);
@@ -51,6 +52,9 @@ for idx = 1:num_images
     hn2 =8 * floor(hn2/8);
     
     annPoints =  image_info{1}.location;
+    % annPoints = matfile.('image_info')
+    annPoints
+
     if( w <= 2*wn2 )
         im = imresize(im,[ h,2*wn2+1]);
         annPoints(:,1) = annPoints(:,1)*2*wn2/w;
