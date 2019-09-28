@@ -53,11 +53,14 @@ for idx = 1:num_images
     
     annPoints =  image_info{1}.location;
     % annPoints = matfile.('image_info')
-    annPoints
+    % disp(annPoints)
+    disp(annPoints(:,1))
+    disp(annPoints(:,2))
 
     if( w <= 2*wn2 )
         im = imresize(im,[ h,2*wn2+1]);
         annPoints(:,1) = annPoints(:,1)*2*wn2/w;
+
     end
     if( h <= 2*hn2)
         im = imresize(im,[2*hn2+1,w]);
