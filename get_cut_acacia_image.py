@@ -54,7 +54,7 @@ os.mkdir(img_dir)
 cut = lib_so.cut_img(palm_file, palmxyfile, N_small_img, Size_small_img, palm_box, img_name_, ImgBeginX, ImgBeginY)
 
 print('ok,cut finished')
-#-----------------------------------------get train.txt correspond to the cut images------------------------
+#-----------------------------------------get train.txt for each month correspond to the cut images------------------------
 ############-------------can produce it at last for multiple months
 # path = './acacia-train_months/'
 # with open(path+'train.txt','w') as tf:

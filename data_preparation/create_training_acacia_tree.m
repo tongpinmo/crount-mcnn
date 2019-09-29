@@ -7,7 +7,7 @@
 clc; clear all;
 seed = 95461354;
 rng(seed)
-N = 2
+N = 4
 dataset_name = ['acacia'];
 path = ['../data/acacia-train/IMG_Palm/'];
 output_path = '../data/acacia_formatted_trainval/';

@@ -29,16 +29,15 @@ def log_print(text, color=None, on_color=None, attrs=None):
 
 
 
-
 method = 'mcnn'
-dataset_name = 'shtechA'
-output_dir = './saved_models/'
+dataset_name = 'acacia'
+output_dir = './acacia_saved_models/'
 
 
-train_path = './data/formatted_trainval/shanghaitech_part_A_patches_9/train'
-train_gt_path = './data/formatted_trainval/shanghaitech_part_A_patches_9/train_den'
-val_path = './data/formatted_trainval/shanghaitech_part_A_patches_9/val'
-val_gt_path = './data/formatted_trainval/shanghaitech_part_A_patches_9/val_den'
+train_path = './data/acacia_formatted_trainval/acacia/train'
+train_gt_path = './data/acacia_formatted_trainval/acacia/train_den'
+val_path = './data/acacia_formatted_trainval/acacia/val'
+val_gt_path = './data/acacia_formatted_trainval/acacia/val_den'
 
 #training configuration
 start_step = 0
