@@ -20,9 +20,9 @@ for file in filenames:
     np_file = np.loadtxt(os.path.join(origin_point_file + '/' + file))
     print('np_file: ',np_file)
     print('type of np_file: ',type(np_file))
-    img_number = file.split('.')[0].split('_')[1]
+    img_number = file.split('.')[0]
     print('img_number: ',img_number)
-    img_mat_file = os.path.join(ground_mat_file + '/' + 'GT_IMG_' + str(int(img_number)) + '.mat')
+    img_mat_file = os.path.join(ground_mat_file + '/' + img_number + '.mat')
     print('img_mat_file: ',img_mat_file)
 
     scio.savemat(img_mat_file,{'image_info':np_file})
