@@ -8,8 +8,8 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 
-origin_file_path = 'acacia-train_months/'
-new_file_path = 'acacia-train/'
+origin_file_path = './data/acacia-train_months/'
+new_file_path = './data/acacia-train/'
 
 
 ###################------------------------step1 get new IMG_Palm_12 dir------------------------
@@ -28,7 +28,7 @@ for i in imfiles:
     # cv2.imshow('test_img',img)
     # cv2.waitKey(1)
     print('img_name: ',img_name)
-    img_name = img_name + 2500
+    img_name = img_name + 1000
     print('new_img_number: ',img_name)
     new_img_name = os.path.join(i[0:4:]+str(img_name) + '.jpg')
     print('new_img_name: ',new_img_name)
@@ -61,7 +61,7 @@ for i in IMG_acacia_12_month:
 
 
 ###################-------------------------step3--get new_gt_palm_06.txt & new_gt_palm_12.txt-------
-#--------------06months----------------------------------------------------------------------------
+####------------------------------------------06months----------------------------------------------------------------------------
 if os.path.exists(origin_file_path + 'new_gt_palm_06.txt'):
     os.remove(origin_file_path + 'new_gt_palm_06.txt')
 with open(origin_file_path + 'gt_palm_06.txt','r') as f5:
@@ -73,7 +73,7 @@ with open(origin_file_path + 'gt_palm_06.txt','r') as f5:
         print('img_name: ',img_name)
         print('img_bb: ',img_bb)
         img_name = img_name.split('/')
-        new_img_name = os.path.join('./acacia-train/IMG_Palm/'+img_name[3])
+        new_img_name = os.path.join('./data/acacia-train/IMG_Palm/'+img_name[4])
         print('new_img_name: ',new_img_name)
 
         new_line = os.path.join(new_img_name + ' '+img_bb)
@@ -82,7 +82,7 @@ with open(origin_file_path + 'gt_palm_06.txt','r') as f5:
         with open(origin_file_path + 'new_gt_palm_06.txt','a+') as f6:
             f6.write('%s\n'% (new_line))
 
-# -----------------------------------------12months-------------------------------------------------
+####-----------------------------------------12months-------------------------------------------------
 if os.path.exists(origin_file_path + 'new_gt_palm_12.txt'):
     os.remove(origin_file_path + 'new_gt_palm_12.txt')
 with open(origin_file_path + 'gt_palm_12.txt','r') as f7:
@@ -95,8 +95,8 @@ with open(origin_file_path + 'gt_palm_12.txt','r') as f7:
         print('img_bb: ',img_bb)
         img_index = os.path.basename(img_name)[4:-4]
         print('img_index: ',img_index)
-        img_index = int(img_index) + 2500
-        new_img_name = os.path.join('./acacia-train/IMG_Palm/'+'IMG_'+str(img_index)+'.jpg')
+        img_index = int(img_index) + 1000
+        new_img_name = os.path.join('./data/acacia-train/IMG_Palm/'+'IMG_'+str(img_index)+'.jpg')
         print('new_img_name: ',new_img_name)
 
         new_line = os.path.join(new_img_name + ' ' + img_bb)
@@ -104,7 +104,7 @@ with open(origin_file_path + 'gt_palm_12.txt','r') as f7:
 
         with open(origin_file_path + 'new_gt_palm_12.txt','a+') as f8:
             f8.write('%s\n'% (new_line))
-# #
+
 # ###################----------------------------step4 get gt_palm.txt for acacia-train---------
 with open(origin_file_path + 'new_gt_palm_06.txt') as f9:
     f9_lines = f9.readlines()
@@ -151,7 +151,7 @@ with open(new_file_path + 'gt_palm.txt','r') as f15:
                 f16.writelines('%s %s\n'%(x[i],y[i]))
 
 
-
+#
 
 
 

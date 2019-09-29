@@ -13,18 +13,18 @@ lib_so = lib("./data_preparation/get_cut_center.so")
 
 #------------------------------------------------get image from the origin each month image--------------------------------
 #acacia-06-month
-# ImgPath = "./data/raw_data/Image_06months.jpg"
-# ImgBeginX = 9500
-# ImgBeginY = 6500
-# Dst_img_width  = 10000
-# Dst_img_height = 8000
+ImgPath = "./data/raw_data/Image_06months.jpg"
+ImgBeginX = 9500
+ImgBeginY = 6500
+Dst_img_width  = 10000
+Dst_img_height = 8000
 
 #acacia-12-month
-ImgPath = "./data/raw_data/Image_12months.jpg"
-ImgBeginX = 17000
-ImgBeginY = 10000
-Dst_img_width  = 10000
-Dst_img_height = 9000
+# ImgPath = "./data/raw_data/Image_12months.jpg"
+# ImgBeginX = 17000
+# ImgBeginY = 10000
+# Dst_img_width  = 10000
+# Dst_img_height = 9000
 
 
 ImgPath_split = ImgPath.split('/')
@@ -38,12 +38,12 @@ print('ok,get finished')
 #---------------------------------------------cut image after the getted each month image----------------------------
 
 palm_file = ResultName_
-palmxyfile = "./data/raw_data/12Months.txt"
-N_small_img = 2500
-Size_small_img = 500
-palm_box = "./data/acacia-train_months/gt_palm_12.txt"
-img_dir = "./data/acacia-train_months/IMG_Palm_12"
-img_name_ = "./data/acacia-train_months/IMG_Palm_12/IMG_"
+palmxyfile = "./data/raw_data/06Months.txt"
+N_small_img = 1000
+Size_small_img = 1024
+palm_box = "./data/acacia-train_months/gt_palm_06.txt"
+img_dir = "./data/acacia-train_months/IMG_Palm_06"
+img_name_ = "./data/acacia-train_months/IMG_Palm_06/IMG_"
 #---------------remove the exist gt_palm.txt & train.txt & IMG_Palm file
 if os.path.exists(palm_box):
     os.remove(palm_box)
