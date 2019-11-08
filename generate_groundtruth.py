@@ -5,8 +5,8 @@ import shutil
 
 ##### convert all IMG_point file to .mat gt file
 
-origin_point_file = './data/acacia-train/IMG_point'
-ground_mat_file = './data/acacia-train/ground_truth'
+origin_point_file = './data/acacia-test/12months/IMG_point'
+ground_mat_file = './data/acacia-test/12months/ground_truth'
 
 filenames = os.listdir(origin_point_file)
 
@@ -27,4 +27,3 @@ for file in filenames:
 
     scio.savemat(img_mat_file,{'image_info':np_file})
 
-    

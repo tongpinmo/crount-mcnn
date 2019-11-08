@@ -4,10 +4,10 @@ import shutil
 from PIL import Image
 import os
 import cv2
-##################################################plot the whole IMG_palm corresponding to gt_palm.txt ****
+##############plot the whole IMG_palm corresponding to gt_palm.txt ****
 
-filepath = './data/acacia-train/gt_palm.txt'
-imgpath = './data/acacia-train/IMG_Palm/IMG_'
+filepath = './data/acacia-test/12months/gt_test_12.txt'
+imgpath = './data/acacia-test/12months/Palm_test_12/IMG_'
 
 
 if os.path.exists('cv2_center/'):

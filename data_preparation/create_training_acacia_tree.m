@@ -53,7 +53,6 @@ for i = 1:num_images
     wn2 =8 * floor(wn2/8);
     hn2 =8 * floor(hn2/8);
 
-    % annPoints =  image_info{1}.location;
     annPoints = matfile.('image_info')
     % disp(annPoints)
 
