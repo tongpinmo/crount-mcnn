@@ -57,7 +57,7 @@ print('ok,cut finished')
 #-----------------------------------------get train.txt for each month correspond to the cut images------------------------
 ############-------------can produce it at last for multiple months
 path = './data/acacia-test/12months/'
-with open(path+'train_12.txt','w') as tf:
+with open(path+'test_12.txt','w') as tf:
     imfiles = os.listdir(os.path.join(path+'Palm_test_12'))
     imfiles = natsort.natsorted(imfiles)
     frame_id = [os.path.basename(fi)[:-4] for fi in imfiles]
@@ -65,7 +65,7 @@ with open(path+'train_12.txt','w') as tf:
         print('frame:',frame)
         tf.write('%s \n'% (frame))
 
-print('ok,get train.txt finished')
+print('ok,get test.txt finished')
 
 
 #------------------------------------get IMG_point file
