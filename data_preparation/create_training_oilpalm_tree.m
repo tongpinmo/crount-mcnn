@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % File to create training  set       %
-% for  Acacia dataset
+% for Oilpalm dataset
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -40,7 +40,7 @@ for i = 1:num_images
     disp(input_img_name)
     input_img_split = strsplit(train_content{1}{i},'.')
     input_img_num = input_img_split{1}
-    
+
     matfile = load(strcat(gt_path,input_img_num,'.mat'))
     disp(matfile)
     im = imread(input_img_name);

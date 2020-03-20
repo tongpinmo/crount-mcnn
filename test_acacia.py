@@ -32,7 +32,8 @@ network.load_net(trained_model, net)
 net.cuda()
 net.eval()
 mae = 0.0
-mse = 0.0
+rmse = 0.0
+mrmse = 0.0
 
 # load test data
 data_loader = ImageDataLoader(data_path, gt_path, shuffle=False, gt_downsample=True, pre_load=True)
@@ -40,25 +41,28 @@ data_loader = ImageDataLoader(data_path, gt_path, shuffle=False, gt_downsample=T
 for blob in data_loader:
     im_data = blob['data']
     gt_data = blob['gt_density']
-    print('gt_data: ',gt_data)
+    # print('gt_data: ',gt_data)
     density_map = net(im_data, gt_data)
     density_map = density_map.data.cpu().numpy()
-    print('density_map: ',density_map)
+    # print('density_map: ',density_map)
     gt_count = np.sum(gt_data)
-    print('gt_count: ',gt_count)
+    # print('gt_count: ',gt_count)
     et_count = np.sum(density_map)
-    print('et_count: ',et_count)
+    # print('et_count: ',et_count)
     mae += abs(gt_count - et_count)
-    mse += ((gt_count - et_count) * (gt_count - et_count))
+    rmse += ((gt_count - et_count) * (gt_count - et_count))
     if vis:
         utils.display_results(im_data, gt_data, density_map)
     if save_output:
         utils.save_density_map(density_map, output_dir, 'output_' + blob['fname'].split('.')[0] + '.png')
 
 mae = mae / data_loader.get_num_samples()
-mse = np.sqrt(mse / data_loader.get_num_samples())
-print('\nMAE: %0.2f, MSE: %0.2f' % (mae, mse))
+rmse = np.sqrt(rmse / data_loader.get_num_samples())
+print('rmse: ',rmse)
+mrmse = np.sqrt(rmse / data_loader.get_num_samples()).mean()
+print('\nMAE: %0.3f, RMSE: %0.3f' % (mae, rmse))
+print('\nmRMSE:%0.3f'%(mrmse))
 
 f = open(file_results, 'w')
-f.write('MAE: %0.2f, MSE: %0.2f' % (mae, mse))
+f.write('MAE: %0.3f, MSE: %0.3f' % (mae, rmse))
 f.close()
