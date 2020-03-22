@@ -3,8 +3,10 @@ output
 final_models
 saved_models
 acacia_saved_models
+oilpalm_saved_models
 *_epochs.py
 *~
 data/
 cv2_center
 *.jpg
+data-oilpalm/

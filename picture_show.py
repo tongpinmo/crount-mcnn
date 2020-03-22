@@ -6,8 +6,8 @@ import os
 import cv2
 ##############plot the whole IMG_palm corresponding to gt_palm.txt ****
 
-filepath = './data/acacia-test/12months/gt_test_12.txt'
-imgpath = './data/acacia-test/12months/Palm_test_12/IMG_'
+filepath = './data-oilpalm/oilpalm-train/gt_palm.txt'
+imgpath = './data-oilpalm/oilpalm-train/IMG_Palm/IMG_'
 
 
 if os.path.exists('cv2_center/'):

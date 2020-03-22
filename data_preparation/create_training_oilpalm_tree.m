@@ -8,13 +8,13 @@ clc; clear all;
 seed = 95461354;
 rng(seed)
 N = 4
-dataset_name = ['acacia'];
-path = ['../data/acacia-train/IMG_Palm/'];
-output_path = '../data/acacia_formatted_trainval/';
+dataset_name = ['oilpalm'];
+path = ['../data-oilpalm/oilpalm-train/IMG_Palm/'];
+output_path = '../data-oilpalm/oilpalm_formatted_trainval/';
 train_path_img = strcat(output_path, dataset_name,'/train/');
 train_path_den = strcat(output_path, dataset_name,'/train_den/');
-gt_path = ['../data/acacia-train/ground_truth/'];
-train_txt = ['../data/acacia-train/train.txt'];
+gt_path = ['../data-oilpalm/oilpalm-train/ground_truth/'];
+train_txt = ['../data-oilpalm/oilpalm-train/train.txt'];
 val_path_img = strcat(output_path, dataset_name,'/val/');
 val_path_den = strcat(output_path, dataset_name,'/val_den/');
 
@@ -28,7 +28,7 @@ train_file = fopen(train_txt,'r');
 train_content = textscan(train_file,'%s');              %cell
 disp(train_content)
 
-num_images = length(train_cont          ent{1});
+num_images = length(train_content{1});
 num_val = ceil(num_images*0.1);
 
 for i = 1:num_images
@@ -36,7 +36,7 @@ for i = 1:num_images
         fprintf(1,'Processing %3d/%d files\n', i, num_images);
     end
 
-    input_img_name = strcat(path,train_content{1}{i});
+    input_img_name = strcat(path,train_content{1}{i},'.jpg');
     disp(input_img_name)
     input_img_split = strsplit(train_content{1}{i},'.')
     input_img_num = input_img_split{1}

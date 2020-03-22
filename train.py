@@ -30,18 +30,17 @@ def log_print(text, color=None, on_color=None, attrs=None):
 
 
 method = 'mcnn'
-dataset_name = 'acacia'
-output_dir = './acacia_saved_models/'
+dataset_name = 'oilpalm'
+output_dir = './oilpalm_saved_models/'
 
-
-train_path = './data/acacia_formatted_trainval/acacia/train'
-train_gt_path = './data/acacia_formatted_trainval/acacia/train_den'
-val_path = './data/acacia_formatted_trainval/acacia/val'
-val_gt_path = './data/acacia_formatted_trainval/acacia/val_den'
+train_path = './data-oilpalm/oilpalm_formatted_trainval/oilpalm/train'
+train_gt_path = './data-oilpalm/oilpalm_formatted_trainval/oilpalm/train_den'
+val_path = './data-oilpalm/oilpalm_formatted_trainval/oilpalm/val'
+val_gt_path = './data-oilpalm/oilpalm_formatted_trainval/oilpalm/val_den'
 
 #training configuration
 start_step = 0
-end_step = 3000
+end_step = 300
 lr = 0.00001
 momentum = 0.9
 disp_interval = 500

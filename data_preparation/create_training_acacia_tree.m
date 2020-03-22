@@ -28,7 +28,7 @@ train_file = fopen(train_txt,'r');
 train_content = textscan(train_file,'%s');              %cell
 disp(train_content)
 
-num_images = length(train_cont          ent{1});
+num_images = length(train_content{1});
 num_val = ceil(num_images*0.1);
 
 for i = 1:num_images
